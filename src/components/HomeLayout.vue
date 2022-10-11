@@ -15,7 +15,7 @@
           <div class="layout-nav">
             <MenuItem
               v-for="menuItem in LayoutMenuItem"
-              :key="menuItem"
+              :key="menuItem.name"
               :name="menuItem.name"
             >
               {{ menuItem.name }}
@@ -56,8 +56,6 @@ export default {
       isFullscreen: false,
     };
   },
-  created() {},
-  mounted() {},
   computed: {},
   watch: {},
   methods: {},
