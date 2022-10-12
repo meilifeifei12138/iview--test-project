@@ -1,11 +1,18 @@
 export default [
   {
-    name: "Features",
+    name: "Dashboard",
+    icon: "fa-solid fa-gauge",
   },
   {
-    name: "Testimonials",
+    name: "Message",
+    icon: "fa-solid fa-message",
   },
   {
-    name: "Submit a Project",
+    name: "Project",
+    icon: "fa-solid fa-p",
+  },
+  {
+    name: "My Bids",
+    icon: "fa-solid fa-handshake",
   },
 ];

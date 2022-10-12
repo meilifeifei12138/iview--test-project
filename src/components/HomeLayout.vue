@@ -1,36 +1,55 @@
 <template>
   <div class="layout">
     <Layout>
-      <Header>
-        <Menu mode="horizontal" theme="dark" active-name="1">
-          <img class="layout-logo" src="../assets/logo.gif" />
-          <div class="layout-btn">
-            <Button
-              type="text"
-              ghost
-              icon="md-reorder"
-              @click="showSider = !showSider"
-            />
-          </div>
-          <div class="layout-nav">
-            <MenuItem
-              v-for="menuItem in LayoutMenuItem"
-              :key="menuItem.name"
-              :name="menuItem.name"
-            >
-              {{ menuItem.name }}
-            </MenuItem>
-            <menu-item name="userAvatar">
-              <user-avatar />
-            </menu-item>
-          </div>
+      <Header
+        :style="{
+          background: '#fff',
+          boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)',
+        }"
+      >
+        <Menu mode="horizontal" theme="light" active-name="1">
+          <Row>
+            <Col span-1>
+              <img class="layout-logo" src="../assets/logo.gif" />
+            </Col>
+            <Col span-1>
+              <div class="layout-btn">
+                <Icon
+                  @click="isCollapsed = !isCollapsed"
+                  :style="{ margin: '0 20px' }"
+                  type="md-menu"
+                  size="24"
+                />
+              </div>
+            </Col>
+            <Col span-6 offset="7">
+              <div class="layout-nav">
+                <MenuItem
+                  v-for="menuItem in LayoutMenuItem"
+                  :key="menuItem.name"
+                  :name="menuItem.name"
+                >
+                  <font-awesome-icon :icon="menuItem.icon" />
+                  {{ menuItem.name }}
+                </MenuItem>
+                <menu-item name="userAvatar">
+                  <user-avatar />
+                </menu-item>
+              </div>
+            </Col>
+          </Row>
         </Menu>
       </Header>
       <layout>
-        <Sider hide-trigger :style="{ background: '#fff' }" v-show="showSider">
+        <Sider
+          :style="{ background: '#fff' }"
+          ref="homeLayoutSider"
+          hide-trigger
+          v-show="isCollapsed"
+        >
           <LeftNavigate />
         </Sider>
-        <Layout :style="{ padding: '0 24px 24px' }">
+        <Layout :style="{ padding: ' 24px 24px' }">
           <Content
             :style="{ padding: '24px', minHeight: '500px', background: '#fff' }"
           >
@@ -52,13 +71,9 @@ export default {
   data() {
     return {
       LayoutMenuItem,
-      showSider: false,
-      isFullscreen: false,
+      isCollapsed: false,
     };
   },
-  computed: {},
-  watch: {},
-  methods: {},
 };
 </script>
 
@@ -71,7 +86,6 @@ export default {
   overflow: hidden;
 }
 .layout-logo {
-  width: 100px;
   height: 30px;
   border-radius: 3px;
   float: left;
@@ -80,13 +94,11 @@ export default {
   left: 20px;
 }
 .layout-btn {
-  width: 50px;
   height: 30px;
   float: left;
   padding-left: 50px;
 }
 .layout-nav {
-  width: 450px;
   margin: 0 auto;
   margin-right: 20px;
 }

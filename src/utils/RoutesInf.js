@@ -5,4 +5,7 @@ export default {
   homeView: {
     name: "homeView",
   },
+  loginPage: {
+    name: "loginPage",
+  },
 };
