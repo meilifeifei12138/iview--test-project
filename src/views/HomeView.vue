@@ -12,7 +12,9 @@
             <Button @click="favorites(row)">
               <font-awesome-icon
                 icon="fa-solid fa-heart"
-                :style="{ color: row.is_saved ? 'pink' : defaultContentColor }"
+                :style="{
+                  color: row.is_saved ? '#E63F00' : defaultContentColor,
+                }"
               />
             </Button>
           </Col>

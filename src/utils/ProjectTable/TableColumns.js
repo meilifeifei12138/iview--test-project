@@ -1,54 +1,46 @@
 export default [
   {
+    type: "expand",
+    width: 50,
+    render: (h, { row: { city, name } }) => {
+      return h("div", "Description:" + name + ",Location:" + city);
+    },
+  },
+  {
     title: "VIP",
     slot: "unLocked",
     align: "center",
     width: 90,
-    // render: (h, params) => {
-    //   if (params.row.is_unlocked) {
-    //     return h(
-    //       "Tooltip",
-    //       {
-    //         props: {
-    //           placement: "bottom",
-    //           content: "Locked",
-    //         },
-    //       }
-    //       [
-    //         h("Button", [
-    //           h("font-awesome-icon", {
-    //             props: {
-    //               icon: "fa-solid fa-lock",
-    //             },
-    //             on: {
-    //               click: () => {
-    //                 console.log("show subscription dialog");
-    //               },
-    //             },
-    //           }),
-    //         ]),
-    //       ]
-    //     );
-    //   } else {
-    //     return h("span");
-    //   }
-    // },
   },
   {
     title: "Project",
     key: "name",
   },
   {
-    title: "Date",
+    title: "Bid Date",
     key: "bid_due_date",
+    align: "center",
+    render: function (h, params) {
+      return h(
+        "div",
+        params.row.bid_due_date.replace(/T/, " ").substring(0, 10)
+      );
+    },
+  },
+  {
+    title: "Status",
+    key: "status",
+    align: "center",
   },
   {
     title: "Location",
     key: "city",
+    align: "center",
   },
   {
     title: "Distance",
     key: "distance",
+    align: "center",
     render: (h, params) => {
       return h("span", params.row.distance + " miles");
     },
