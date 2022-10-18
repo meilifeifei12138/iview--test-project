@@ -5,7 +5,10 @@ export default {
   homeView: {
     name: "homeView",
   },
-  loginPage: {
-    name: "loginPage",
+  SignUpPage: {
+    name: "SignUpPage",
+  },
+  LoginPage: {
+    name: "LoginPage",
   },
 };
