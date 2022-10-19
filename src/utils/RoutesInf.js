@@ -1,14 +1,22 @@
 export default {
   homeLayout: {
+    path: "/home",
     name: "homeLayout",
   },
   homeView: {
+    path: "/home",
     name: "homeView",
   },
-  SignUpPage: {
-    name: "SignUpPage",
+  forgotPasswordPage: {
+    path: "/forgot-password",
+    name: "forgotPassword",
   },
-  LoginPage: {
-    name: "LoginPage",
+  signUpPage: {
+    path: "/signup",
+    name: "signUpPage",
+  },
+  loginPage: {
+    path: "/login",
+    name: "loginPage",
   },
 };

@@ -119,7 +119,7 @@
 
 <script>
 export default {
-  name: "loginPage",
+  name: "SignUpPage",
   data() {
     return {
       carousel: 1,

@@ -36,27 +36,32 @@
           </Input>
         </FormItem>
         <FormItem>
-          <Checkbox v-model="isRemember">Remember me </Checkbox>
-        </FormItem>
-        <FormItem>
-          <Button type="primary" @click="handleSubmit('formInline')"
+          <Button
+            type="primary"
+            @click="handleSubmit('formInline')"
+            :loading="signUpLoading"
             >Login in</Button
           >
         </FormItem>
       </Form>
+      <router-link :to="RoutesInf.forgotPasswordPage.path"
+        >Forgot your password?</router-link
+      >
       <div>
         Not registered yet?
-        <router-link to="/signup">Signup</router-link>
+        <router-link :to="RoutesInf.signUpPage.path">Signup</router-link>
       </div>
     </Card>
   </div>
 </template>
 <script>
+import RoutesInf from "@/utils/RoutesInf";
 export default {
   name: "LoginPage",
   data() {
     return {
-      isRemember: false,
+      RoutesInf,
+      signUpLoading: false,
       formInline: {
         user: "",
         password: "",
@@ -90,6 +95,13 @@ export default {
       this.$refs[name].validate((valid) => {
         if (valid) {
           this.$Message.success("Success!");
+          // 发请求
+          this.signUpLoading = true;
+          const that = this;
+          setTimeout(function () {
+            that.signUpLoading = false;
+            that.$router.push({ name: RoutesInf.homeView.name });
+          }, 1000);
         } else {
           this.$Message.error("Fail!");
         }

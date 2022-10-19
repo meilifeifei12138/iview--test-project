@@ -7,22 +7,37 @@
       <Icon :size="18" type="md-arrow-dropdown"></Icon>
       <DropdownMenu slot="list">
         <DropdownItem name="message">
-          消息中心
-          <Badge :count="messageUnreadCount" />
+          <Button type="text">
+            消息中心
+            <Badge :count="messageUnreadCount" />
+          </Button>
         </DropdownItem>
-        <DropdownItem name="logout">退出登录</DropdownItem>
+        <DropdownItem name="logout">
+          <Button type="text" @click="loginOut">退出登录</Button>
+        </DropdownItem>
       </DropdownMenu>
     </Dropdown>
   </div>
 </template>
 
 <script>
+import RoutesInf from "@/utils/RoutesInf";
 export default {
   name: "UserAvatar",
   props: {
     messageUnreadCount: {
       type: Number,
       default: 8,
+    },
+  },
+  methods: {
+    loginOut() {
+      //退出登陆 成功
+      this.$Notice.success({
+        title: "Success",
+        desc: "Logged Out Successful!",
+      });
+      this.$router.push({ name: RoutesInf.loginPage.name });
     },
   },
 };
