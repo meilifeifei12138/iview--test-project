@@ -15,12 +15,16 @@
         <h2 style="margin-bottom: 5vh">Login in</h2>
         <Form
           ref="formInline"
-          :model="formInline"
+          :model="loginFormValue"
           :rules="ruleInline"
           style="padding: 0 20%"
         >
           <FormItem prop="user">
-            <Input type="text" v-model="formInline.user" placeholder="Username">
+            <Input
+              type="text"
+              v-model="loginFormValue.user"
+              placeholder="Username"
+            >
               <template #prepend>
                 <Icon type="ios-person-outline" />
               </template>
@@ -29,7 +33,7 @@
           <FormItem prop="password">
             <Input
               type="password"
-              v-model="formInline.password"
+              v-model="loginFormValue.password"
               placeholder="Password"
             >
               <template #prepend>
@@ -56,6 +60,11 @@
           Not registered yet?
           <router-link :to="RoutesInf.signUpPage.path">Signup</router-link>
         </div>
+        <br />
+        <div>
+          <router-link to="">Privacy Notice </router-link> |
+          <router-link to="">Terms Of Use</router-link>
+        </div>
       </Card>
     </div>
   </Layout>
@@ -69,9 +78,9 @@ export default {
       RoutesInf,
       signUpLoading: false,
       rememberCheckbox: true,
-      formInline: {
-        user: "",
-        password: "",
+      loginFormValue: {
+        user: "admin",
+        password: "123456",
       },
       ruleInline: {
         user: [
@@ -107,6 +116,7 @@ export default {
           const that = this;
           setTimeout(function () {
             that.signUpLoading = false;
+            localStorage.setItem("UserInfo", that.loginFormValue.user);
             that.$router.push({ name: RoutesInf.homeView.name });
           }, 1000);
         } else {
@@ -123,7 +133,7 @@ body,
 .login-bg {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100vh;
   background-image: url("../assets/background.jpeg");
 }
 .forgotPasswordCardLogo {

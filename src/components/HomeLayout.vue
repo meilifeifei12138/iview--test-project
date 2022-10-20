@@ -66,7 +66,7 @@ import UserAvatar from "@/components/UserAvatar";
 import LeftNavigate from "@/components/LeftNavigate";
 import LayoutMenuItem from "@/utils/LayoutMenuItem";
 export default {
-  name: "HelloWorld",
+  name: "HomeLayout",
   components: { UserAvatar, LeftNavigate },
   data() {
     return {

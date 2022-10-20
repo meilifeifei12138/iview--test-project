@@ -33,6 +33,7 @@ export default {
   methods: {
     loginOut() {
       //退出登陆 成功
+      localStorage.removeItem("UserInfo");
       this.$Notice.success({
         title: "Success",
         desc: "Logged Out Successful!",

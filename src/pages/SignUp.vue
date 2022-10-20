@@ -102,6 +102,12 @@
                 >
               </FormItem>
             </Form>
+            <div style="float: right">
+              <router-link :to="RoutesInf.loginPage.path"
+                >Login in
+                <Icon type="md-arrow-forward" />
+              </router-link>
+            </div>
           </div>
         </Col>
       </Row>
@@ -110,11 +116,14 @@
 </template>
 
 <script>
+import RoutesInf from "@/utils/RoutesInf";
+
 export default {
   name: "SignUpPage",
   data() {
     return {
       carousel: 0,
+      RoutesInf,
       formValidate: {
         companyName: "",
         mail: "",
@@ -195,11 +204,15 @@ export default {
   methods: {
     handleSubmit(name) {
       this.$refs[name].validate((valid) => {
-        if (valid) {
-          this.$Message.success("Success!");
-        } else {
-          this.$Message.error("Fail!");
+        if (!valid) {
+          this.$Message.error("validate fail!");
+          return;
         }
+        const that = this;
+        setTimeout(function () {
+          that.$Message.success("sign up success");
+        }, 1000);
+        this.$router.push({ name: RoutesInf.loginPage.name });
       });
     },
   },
