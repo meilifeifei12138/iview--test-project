@@ -12,7 +12,7 @@
         <div class="forgotPasswordCardLogo">
           <img src="../assets/logo.gif" style="width: 100%" />
         </div>
-        <h2 style="margin-bottom: 5vh">Login in</h2>
+        <h2 style="margin-bottom: 5vh">Login</h2>
         <Form
           ref="formInline"
           :model="loginFormValue"

@@ -3,15 +3,23 @@ import Vue from "vue";
 import RoutesInf from "@/utils/RoutesInf";
 
 import VueRouter from "vue-router";
-import HomeLayout from "@/components/HomeLayout";
-import HomeView from "@/views/HomeView";
+import HomeLayout from "@/layout/HomeLayout";
+import HomeView from "@/views/InitialTbaleView";
 import SignUpPage from "@/pages/SignUp";
 import LoginPage from "@/pages/Login";
+import FrontPage from "@/pages/FrontPage";
+import ProjectDetailsPage from "@/pages/ProjectDetails";
 import ForgotPassword from "@/pages/ForgotPassword";
+import NotFound from "@/pages/404";
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: RoutesInf.frontPage.path,
+    name: RoutesInf.frontPage.name,
+    component: FrontPage,
+  },
   {
     path: RoutesInf.signUpPage.path,
     name: RoutesInf.signUpPage.name,
@@ -39,6 +47,16 @@ const routes = [
         component: HomeView,
       },
     ],
+  },
+  {
+    path: RoutesInf.projectDetailsPage.path,
+    name: RoutesInf.projectDetailsPage.name,
+    component: ProjectDetailsPage,
+  },
+  {
+    path: "*",
+    name: "notfound",
+    component: NotFound,
   },
 ];
 

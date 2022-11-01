@@ -10,7 +10,9 @@
         <Menu mode="horizontal" theme="light" active-name="1">
           <Row>
             <Col span-1>
-              <img class="layout-logo" src="../assets/logo.gif" />
+              <div @click="toHomePage">
+                <img class="layout-logo" src="../assets/logo.gif" />
+              </div>
             </Col>
             <Col span-1>
               <div class="layout-btn">
@@ -50,11 +52,14 @@
           <LeftNavigate />
         </Sider>
         <Layout :style="{ padding: ' 24px 24px' }">
-          <Content
-            :style="{ padding: '24px', minHeight: '500px', background: '#fff' }"
-          >
-            <router-view />
-          </Content>
+          <Tabs value="optimizedVersion">
+            <TabPane label="第一版" name="initialVersion">
+              <HomeView />
+            </TabPane>
+            <TabPane label="第二版" name="optimizedVersion">
+              <OptimizedTableView />
+            </TabPane>
+          </Tabs>
         </Layout>
       </layout>
     </Layout>
@@ -62,17 +67,31 @@
 </template>
 
 <script>
+import InitialTableView from "@/views/InitialTbaleView";
+import OptimizedTableView from "@/views/OptimizedTableView";
+import RoutesInf from "@/utils/RoutesInf";
 import UserAvatar from "@/components/UserAvatar";
 import LeftNavigate from "@/components/LeftNavigate";
 import LayoutMenuItem from "@/utils/LayoutMenuItem";
 export default {
   name: "HomeLayout",
-  components: { UserAvatar, LeftNavigate },
+  components: {
+    OptimizedTableView,
+    HomeView: InitialTableView,
+    UserAvatar,
+    LeftNavigate,
+  },
   data() {
     return {
       LayoutMenuItem,
+      RoutesInf,
       isCollapsed: false,
     };
+  },
+  methods: {
+    toHomePage() {
+      this.$router.push({ name: RoutesInf.frontPage.name });
+    },
   },
 };
 </script>

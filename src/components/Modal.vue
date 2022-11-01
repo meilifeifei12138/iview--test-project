@@ -1,7 +1,7 @@
 <template>
   <Modal v-model="showModal" @on-ok="confirmBtn" @on-cancel="cancelBtn">
     <slot name="header">
-      <p>title</p>
+      <p>订阅</p>
     </slot>
     <slot name="content" />
   </Modal>
