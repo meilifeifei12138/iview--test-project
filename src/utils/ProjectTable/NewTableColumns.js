@@ -30,7 +30,10 @@ export default [
             click: () => {
               Router.push({
                 name: RoutesInf.projectDetailsPage.name,
-                params: { id: params.row.id },
+                params: {
+                  id: params.row.id,
+                  projectDetails: JSON.stringify(params.row),
+                },
               });
             },
           },

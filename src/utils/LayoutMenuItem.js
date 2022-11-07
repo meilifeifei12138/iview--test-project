@@ -1,7 +1,7 @@
 export default [
   {
     name: "Dashboard",
-    icon: "fa-solid fa-gauge",
+    icon: "fa-solid fa-house",
   },
   {
     name: "Message",

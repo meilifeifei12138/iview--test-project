@@ -13,7 +13,6 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 /* import specific icons */
 import { fas } from "@fortawesome/free-solid-svg-icons";
-
 /* add icons to the library */
 library.add(fas);
 
@@ -26,5 +25,6 @@ Vue.use(ViewUI);
 new Vue({
   router,
   store,
+  // i18n,
   render: (h) => h(App),
 }).$mount("#app");

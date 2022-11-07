@@ -40,6 +40,11 @@
           />
         </Col>
       </Row>
+      <div style="margin: 10px 0">
+        <router-link :to="RoutesInf.subscriptionPage.path">
+          订阅使用更多功能
+        </router-link>
+      </div>
       <Row>
         <Col span="6">
           <div>
@@ -86,7 +91,7 @@
       <Card style="margin: 10px 0">
         <Row type="flex" justify="end" class="code-row-bg">
           <div style="line-height: 32px; margin-right: 10px">
-            已选中{{ collectedProject.length }}项
+            批量操作 ：已选中{{ selectedDate.length }}项
           </div>
           <Button
             type="primary"
@@ -110,7 +115,7 @@
       >
         <template #isCollected="{ row }">
           <Icon
-            type="md-star-outline"
+            :type="row.isCollected ? 'md-star' : 'md-star-outline'"
             :color="row.isCollected ? '#ff9900' : ''"
             size="25"
             @click="collectedProject(row)"
@@ -143,9 +148,10 @@
 <script>
 import NewTableDate from "@/utils/ProjectTable/NewTableDate";
 import NewTableColumns from "@/utils/ProjectTable/NewTableColumns";
+import RoutesInf from "@/utils/RoutesInf";
 import CountryList from "@/utils/CountryList";
 import TenderStatus from "@/utils/TenderStatus";
-import ModalComponent from "@/components/Modal";
+import ModalComponent from "@/components/SubscriptionModalComponent";
 export default {
   name: "OptimizedTableView",
   components: {
@@ -154,6 +160,7 @@ export default {
   data() {
     return {
       NewTableColumns,
+      RoutesInf,
       NewTableDate,
       CountryList,
       TenderStatus,

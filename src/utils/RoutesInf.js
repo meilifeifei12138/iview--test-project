@@ -24,7 +24,19 @@ export default {
     name: "loginPage",
   },
   projectDetailsPage: {
-    path: "/projects/:id",
+    path: "/projects/details/:id",
     name: "projectDetailsPage",
+  },
+  subscriptionPage: {
+    path: "/subscription",
+    name: "subscriptionPage",
+  },
+  serveCenter: {
+    path: "/serve-center",
+    name: "serveCenterPag",
+  },
+  messageCenter: {
+    path: "/message-center",
+    name: "messageCenter",
   },
 };

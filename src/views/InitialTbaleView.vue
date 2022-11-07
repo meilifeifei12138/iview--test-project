@@ -34,13 +34,8 @@
       </template>
     </Table>
     <ModalComponent ref="subscriptionModal">
-      <template #header>
-        <!--        not finished-->
-        <h1>subscription</h1>
-      </template>
       <template #content>
-        <!--      not finished-->
-        <h1>订阅</h1>
+        <p>打钱快点</p>
       </template>
     </ModalComponent>
   </div>
@@ -49,17 +44,17 @@
 <script>
 const defaultContentColor = "#515a6e";
 
-import ModalComponent from "@/components/Modal";
+import ModalComponent from "@/components/SubscriptionModalComponent";
 
-import tableColumns from "@/utils/ProjectTable/TableColumns";
-import tableDate from "@/utils/ProjectTable/TableDate";
+import TableColumns from "@/utils/ProjectTable/TableColumns";
+import TableDate from "@/utils/ProjectTable/TableDate";
 
 export default {
   name: "HomeView",
   data() {
     return {
-      tableColumns,
-      tableDate,
+      tableColumns: TableColumns,
+      tableDate: TableDate,
       defaultContentColor,
       likeProjectIconColor: defaultContentColor,
       tableLoading: false,

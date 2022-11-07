@@ -4,10 +4,10 @@
       <Badge>
         <Avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" />
       </Badge>
-      <Icon :size="18" type="md-arrow-dropdown"></Icon>
+      <Icon :size="18" type="md-arrow-dropdown" />
       <DropdownMenu slot="list">
         <DropdownItem name="message">
-          <Button type="text">
+          <Button type="text" @click="toMessageCenter">
             消息中心
             <Badge :count="messageUnreadCount" />
           </Button>
@@ -39,6 +39,9 @@ export default {
         desc: "Logged Out Successful!",
       });
       this.$router.push({ name: RoutesInf.loginPage.name });
+    },
+    toMessageCenter() {
+      this.$router.push(RoutesInf.messageCenter.path);
     },
   },
 };
