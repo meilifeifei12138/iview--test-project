@@ -2,8 +2,8 @@
   <div>
     <Table
       border
-      :columns="tableColumns"
-      :data="tableDate"
+      :columns="TableColumns"
+      :data="TableDate"
       :loading="tableLoading"
     >
       <template #action="{ row, index }">
@@ -33,18 +33,14 @@
         </Tooltip>
       </template>
     </Table>
-    <ModalComponent ref="subscriptionModal">
-      <template #content>
-        <p>打钱快点</p>
-      </template>
-    </ModalComponent>
+    <ModalComponent ref="subscriptionModal" />
   </div>
 </template>
 
 <script>
 const defaultContentColor = "#515a6e";
 
-import ModalComponent from "@/components/SubscriptionModalComponent";
+import SubscriptionModalComponent from "@/components/SubscriptionModalComponent";
 
 import TableColumns from "@/utils/ProjectTable/TableColumns";
 import TableDate from "@/utils/ProjectTable/TableDate";
@@ -53,15 +49,15 @@ export default {
   name: "HomeView",
   data() {
     return {
-      tableColumns: TableColumns,
-      tableDate: TableDate,
+      TableColumns,
+      TableDate,
       defaultContentColor,
       likeProjectIconColor: defaultContentColor,
       tableLoading: false,
     };
   },
   components: {
-    ModalComponent,
+    ModalComponent: SubscriptionModalComponent,
   },
   methods: {
     favorites(row) {
@@ -75,7 +71,7 @@ export default {
       }, 1000);
     },
     remove(index) {
-      this.tableDate.splice(index, 1);
+      this.TableDate.splice(index, 1);
     },
     showSubscriptionModal() {
       this.$refs.subscriptionModal.showModal = true;

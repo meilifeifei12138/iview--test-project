@@ -29,7 +29,6 @@ import InitialTableView from "@/views/InitialTbaleView";
 import OptimizedTableView from "@/views/OptimizedTableView";
 import RoutesInf from "@/utils/RoutesInf";
 import LeftNavigate from "@/components/LeftNavigate";
-import LayoutMenuItem from "@/utils/LayoutMenuItem";
 import LayoutHeader from "@/components/LayoutHeader";
 export default {
   name: "HomeLayout",
@@ -41,7 +40,6 @@ export default {
   },
   data() {
     return {
-      LayoutMenuItem,
       RoutesInf,
       isCollapsed: false,
     };

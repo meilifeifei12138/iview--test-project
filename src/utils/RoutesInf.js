@@ -27,9 +27,9 @@ export default {
     path: "/projects/details/:id",
     name: "projectDetailsPage",
   },
-  subscriptionPage: {
-    path: "/subscription",
-    name: "subscriptionPage",
+  subscribePage: {
+    path: "/subscribe",
+    name: "subscribePage",
   },
   serveCenter: {
     path: "/serve-center",
@@ -38,5 +38,9 @@ export default {
   messageCenter: {
     path: "/message-center",
     name: "messageCenter",
+  },
+  checkinPage: {
+    path: "/checkin",
+    name: "checkinPage",
   },
 };

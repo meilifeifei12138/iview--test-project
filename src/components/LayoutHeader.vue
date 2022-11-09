@@ -1,37 +1,17 @@
 <template>
-  <Header
-    :style="{
-      background: '#fff',
-      boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)',
-    }"
-  >
+  <Header class="header">
     <Menu mode="horizontal" active-name="1">
       <Row type="flex" justify="space-between" class="code-row-bg">
         <Col span-1>
-          <div @click="toHomePage">
+          <div @click="toFrontPage">
             <img class="layout-logo" src="../assets/logo.gif" />
           </div>
         </Col>
         <Col>
           <div class="layout-nav">
-            <Menu-item
-              v-for="menuItem in ProjectDetailsLayoutMenuItem"
-              :key="menuItem.name"
-              :name="menuItem.name"
-            >
-              <router-link
-                :to="menuItem.path"
-                style="display: block; color: #535b6c"
-              >
-                <div class="layoutHeaderFront">
-                  <font-awesome-icon :icon="menuItem.icon" />
-                  {{ menuItem.name }}
-                </div>
-              </router-link>
-            </Menu-item>
-            <menu-item name="userAvatar">
-              <UserAvatar />
-            </menu-item>
+            <slot name="menuItem">
+              <SignedInLayoutHeaderMenuItem />
+            </slot>
           </div>
         </Col>
       </Row>
@@ -40,21 +20,20 @@
 </template>
 
 <script>
+import SignedInLayoutHeaderMenuItem from "@/components/SignedInLayoutHeaderMenuItem";
 import RoutesInf from "@/utils/RoutesInf";
-import ProjectDetailsLayoutMenuItem from "@/utils/ProjectDetailsLayoutMenuItem";
-import UserAvatar from "@/components/UserAvatar";
 export default {
   name: "LayoutHeaderPage",
   data() {
     return {
-      ProjectDetailsLayoutMenuItem,
+      isShowPunchCard: false,
     };
   },
   components: {
-    UserAvatar,
+    SignedInLayoutHeaderMenuItem,
   },
   methods: {
-    toHomePage() {
+    toFrontPage() {
       this.$router.push({ name: RoutesInf.frontPage.name });
     },
   },
@@ -70,7 +49,9 @@ export default {
   top: 15px;
   left: 20px;
 }
-.layoutHeaderFront:hover {
-  color: #3399ff;
+.header {
+  background: #fff;
+  boxshadow: "0 2px 3px 2px rgba(0,0,0,.1)";
+  height: 100%;
 }
 </style>

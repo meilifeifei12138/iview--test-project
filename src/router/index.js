@@ -8,11 +8,12 @@ import HomeView from "@/views/InitialTbaleView";
 import SignUpPage from "@/pages/SignUp";
 import LoginPage from "@/pages/Login";
 import FrontPage from "@/pages/FrontPage";
-import SubscriptionPage from "@/pages/Subscription";
+import SubscribePage from "@/pages/Subscribe";
 import ProjectDetailsPage from "@/pages/ProjectDetails";
 import MessageCenterPage from "@/pages/MessageCenter";
 import ServeCenterPage from "@/pages/ServeCenter";
 import ForgotPasswordPage from "@/pages/ForgotPassword";
+import CheckinPage from "@/pages/Checkin";
 import NotFound from "@/pages/404";
 
 Vue.use(VueRouter);
@@ -63,9 +64,9 @@ const routes = [
   },
   //订阅页
   {
-    name: RoutesInf.subscriptionPage.name,
-    path: RoutesInf.subscriptionPage.path,
-    component: SubscriptionPage,
+    name: RoutesInf.subscribePage.name,
+    path: RoutesInf.subscribePage.path,
+    component: SubscribePage,
   },
   //服务页
   {
@@ -73,10 +74,17 @@ const routes = [
     path: RoutesInf.serveCenter.path,
     component: ServeCenterPage,
   },
+  //信息中心
   {
     name: RoutesInf.messageCenter.name,
     path: RoutesInf.messageCenter.path,
     component: MessageCenterPage,
+  },
+  //签到页面
+  {
+    name: RoutesInf.checkinPage.name,
+    path: RoutesInf.checkinPage.path,
+    component: CheckinPage,
   },
   {
     path: "*",

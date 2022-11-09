@@ -41,8 +41,8 @@
         </Col>
       </Row>
       <div style="margin: 10px 0">
-        <router-link :to="RoutesInf.subscriptionPage.path">
-          订阅使用更多功能
+        <router-link :to="RoutesInf.subscribePage.path">
+          去订阅使用更多功能
         </router-link>
       </div>
       <Row>
@@ -53,7 +53,7 @@
               <Select
                 v-model="countrySelectModel"
                 :model-value="checkAll"
-                :disabled="isDisabledSelected"
+                :disabled="isSubscribe"
                 style="width: 200px"
               >
                 <Option
@@ -72,7 +72,7 @@
             <span @mousedown="showSubscriptionModal">
               <Select
                 v-model="countrySelectModel"
-                :disabled="isDisabledSelected"
+                :disabled="isSubscribe"
                 style="width: 200px"
               >
                 <Option
@@ -90,9 +90,12 @@
     <Card>
       <Card style="margin: 10px 0">
         <Row type="flex" justify="end" class="code-row-bg">
-          <div style="line-height: 32px; margin-right: 10px">
-            批量操作 ：已选中{{ selectedDate.length }}项
-          </div>
+          <Col></Col>
+          <Col>
+            <div style="line-height: 32px; margin-right: 10px">
+              批量操作 ：已选中{{ selectedDate.length }}项
+            </div>
+          </Col>
           <Button
             type="primary"
             @click="collectedSelectedDate"
@@ -134,14 +137,7 @@
         />
       </Row>
     </Card>
-    <Modal ref="subscriptionModal">
-      <template #content>
-        <h1>打钱</h1>
-        <h1>打钱</h1>
-        <h1>打钱</h1>
-        <h1>打钱</h1>
-      </template>
-    </Modal>
+    <SubscriptionModalComponent ref="subscriptionModal" />
   </div>
 </template>
 
@@ -151,11 +147,11 @@ import NewTableColumns from "@/utils/ProjectTable/NewTableColumns";
 import RoutesInf from "@/utils/RoutesInf";
 import CountryList from "@/utils/CountryList";
 import TenderStatus from "@/utils/TenderStatus";
-import ModalComponent from "@/components/SubscriptionModalComponent";
+import SubscriptionModalComponent from "@/components/SubscriptionModalComponent";
 export default {
   name: "OptimizedTableView",
   components: {
-    Modal: ModalComponent,
+    SubscriptionModalComponent,
   },
   data() {
     return {
@@ -167,7 +163,7 @@ export default {
       isLoading: false,
       checkAll: false,
       countrySelectModel: "",
-      isDisabledSelected: true,
+      isSubscribe: true,
       isCollectedAllProjectBtnLoading: false,
       selectedDate: [],
       pageOption: {
@@ -183,7 +179,7 @@ export default {
   },
   methods: {
     showSubscriptionModal() {
-      if (this.isDisabledSelected) {
+      if (this.isSubscribe) {
         this.$refs.subscriptionModal.showModal = true;
       }
     },

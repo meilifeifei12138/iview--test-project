@@ -10,9 +10,7 @@
         <br />
         <span
           >项目原地址:
-          <a @click="jumpOriginAddress">{{
-            projectDate.website | urlHidden
-          }}</a>
+          <a @click="jumpOriginAddress">{{ projectDate.website }}</a>
         </span>
       </Card>
 
@@ -36,11 +34,7 @@
           </Split>
         </div>
       </Card>
-      <ModalComponent ref="subscriptionModal">
-        <template #content>
-          <p>打钱打钱</p>
-        </template>
-      </ModalComponent>
+      <ModalComponent ref="subscriptionModal" />
     </Layout>
   </div>
 </template>
@@ -79,9 +73,9 @@ export default {
   },
   filters: {
     //没写完的；
-    urlHidden: function (value) {
-      return value.replace(/\.+/g, "******");
-    },
+    // urlHidden: function (value) {
+    //   return value.replace(/\.+/g, "******");
+    // },
   },
 };
 </script>
