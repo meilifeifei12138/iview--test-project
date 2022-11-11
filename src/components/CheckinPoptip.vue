@@ -32,6 +32,12 @@
             </div>
           </Col>
         </Row>
+        <p>
+          <router-link :to="RoutesInf.checkinPage.path">
+            更多功能请前往
+            <font-awesome-icon icon="fa-solid fa-arrow-right" />
+          </router-link>
+        </p>
       </div>
     </template>
   </Poptip>

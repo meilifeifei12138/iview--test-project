@@ -1,3 +1,4 @@
+<!-- eslint-disable no-unused-vars -->
 <template>
   <div>
     <LayoutHeader />
@@ -5,34 +6,22 @@
       <h1>Subscribe</h1>
     </Card>
     <Card>
-      <Row :gutter="16">
-        <Col
-          span="6"
-          v-for="subscribeItem in SubscribeInfo"
-          :key="subscribeItem.level"
-        >
-          <Card>
-            <h1>{{ subscribeItem.level }}</h1>
-            <p>{{ subscribeItem.price }}</p>
-          </Card>
-        </Col>
-      </Row>
+      <p style="height: 5rem; line-height: 5rem; text-align: center">
+        按年订阅更优惠
+      </p>
+      <SubscribeCard />
     </Card>
   </div>
 </template>
 
 <script>
 import LayoutHeader from "@/components/LayoutHeader";
-import SubscribeInfo from "@/utils/SubscribeInfo";
+import SubscribeCard from "@/components/SubscribeCard";
 export default {
   name: "SubscribePage",
   components: {
     LayoutHeader,
-  },
-  data() {
-    return {
-      SubscribeInfo,
-    };
+    SubscribeCard,
   },
 };
 </script>

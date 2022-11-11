@@ -33,7 +33,7 @@ export default {
   },
   serveCenter: {
     path: "/serve-center",
-    name: "serveCenterPag",
+    name: "serveCenterPage",
   },
   messageCenter: {
     path: "/message-center",
@@ -42,5 +42,9 @@ export default {
   checkinPage: {
     path: "/checkin",
     name: "checkinPage",
+  },
+  payPage: {
+    path: "/pay/:priceDetails",
+    name: "payPage",
   },
 };

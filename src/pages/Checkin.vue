@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!--    头部导航栏的菜单-->
     <LayoutHeader>
       <template #menuItem>
         <Menu-item
@@ -19,13 +20,17 @@
         </Menu-item>
       </template>
     </LayoutHeader>
-    <h1>日历打卡</h1>
+    <!--  头部导航栏的菜单  -->
+
+    <h1>补签 等功能 推荐用户订阅</h1>
+    <SubscribeCard />
   </div>
 </template>
 
 <script>
 import LayoutHeader from "@/components/LayoutHeader";
 import CheckinLayoutMenuItem from "@/utils/LayoutMenu/CheckinLayoutMenuItem";
+import SubscribeCard from "@/components/SubscribeCard";
 export default {
   name: "CheckinPage",
   data() {
@@ -35,6 +40,7 @@ export default {
   },
   components: {
     LayoutHeader,
+    SubscribeCard,
   },
 };
 </script>
