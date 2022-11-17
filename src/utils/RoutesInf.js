@@ -43,8 +43,8 @@ export default {
     path: "/checkin",
     name: "checkinPage",
   },
-  payPage: {
-    path: "/pay/:priceDetails",
-    name: "payPage",
+  paymentPage: {
+    path: "/payment/:priceDetails",
+    name: "paymentPage",
   },
 };

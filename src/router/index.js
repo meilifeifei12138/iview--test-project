@@ -14,7 +14,7 @@ import MessageCenterPage from "@/pages/MessageCenter";
 import ServeCenterPage from "@/pages/ServeCenter";
 import ForgotPasswordPage from "@/pages/ForgotPassword";
 import CheckinPage from "@/pages/Checkin";
-import PayPage from "@/pages/Pay";
+import PaymentPage from "@/pages/Payment";
 import NotFound from "@/pages/404";
 
 Vue.use(VueRouter);
@@ -88,9 +88,9 @@ const routes = [
     component: CheckinPage,
   },
   {
-    name: RoutesInf.payPage.name,
-    path: RoutesInf.payPage.path,
-    component: PayPage,
+    name: RoutesInf.paymentPage.name,
+    path: RoutesInf.paymentPage.path,
+    component: PaymentPage,
   },
   {
     path: "*",

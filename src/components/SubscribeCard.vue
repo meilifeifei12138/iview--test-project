@@ -38,7 +38,7 @@ export default {
   methods: {
     toPayPage(price) {
       this.$router.push({
-        name: RoutesInf.payPage.name,
+        name: RoutesInf.paymentPage.name,
         params: { priceDetails: price },
       });
     },
