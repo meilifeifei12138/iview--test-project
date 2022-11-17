@@ -9,7 +9,7 @@
           text-align: center;
         "
       >
-        <div class="forgotPasswordCardLogo">
+        <div class="Logo">
           <img src="../assets/logo.gif" style="width: 100%" />
         </div>
         <h2 style="margin-bottom: 5vh">Lost password?</h2>
@@ -73,7 +73,7 @@ body,
   height: 100vh;
   background-image: url("../assets/background.jpeg");
 }
-.forgotPasswordCardLogo {
+.Logo {
   text-align: center;
   margin: 5vh auto;
   width: 12vw;

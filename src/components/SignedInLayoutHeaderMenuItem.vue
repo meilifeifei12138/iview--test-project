@@ -41,5 +41,5 @@ export default {
 </script>
 
 <style scoped>
-@import "@/css/layoutheader.css";
+@import "@/css/layoutHeader.css";
 </style>

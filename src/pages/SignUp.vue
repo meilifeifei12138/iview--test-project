@@ -1,9 +1,9 @@
 <template>
   <Layout>
-    <Content :style="{ minHeight: '500px', background: '#fff' }">
+    <Content :style="{ height: 'calc(100vh)', background: '#fff' }">
       <Row>
         <Col span="12">
-          <div class="loginCard">
+          <div>
             <Carousel autoplay v-model="carousel" loop style="height: 100vh">
               <CarouselItem>
                 <img src="../assets/background.jpeg" />

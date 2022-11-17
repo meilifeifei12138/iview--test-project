@@ -1,73 +1,64 @@
 <template>
-  <Layout>
-    <div class="login-bg">
-      <Card
-        style="
-          width: 30%;
-          min-height: 60vh;
-          margin: 20vh auto 30vh;
-          text-align: center;
-        "
+  <div class="login-bg">
+    <Card style="width: 30%; min-height: 60%; margin: auto; text-align: center">
+      <div class="Logo">
+        <img src="../assets/logo.gif" style="width: 100%" />
+      </div>
+      <h2 style="margin-bottom: 5vh">Login</h2>
+      <Form
+        ref="formInline"
+        :model="loginFormValue"
+        :rules="ruleInline"
+        style="padding: 0 20%"
       >
-        <div class="forgotPasswordCardLogo">
-          <img src="../assets/logo.gif" style="width: 100%" />
-        </div>
-        <h2 style="margin-bottom: 5vh">Login</h2>
-        <Form
-          ref="formInline"
-          :model="loginFormValue"
-          :rules="ruleInline"
-          style="padding: 0 20%"
-        >
-          <FormItem prop="user">
-            <Input
-              type="text"
-              v-model="loginFormValue.user"
-              placeholder="Username"
-            >
-              <template #prepend>
-                <Icon type="ios-person-outline" />
-              </template>
-            </Input>
-          </FormItem>
-          <FormItem prop="password">
-            <Input
-              type="password"
-              v-model="loginFormValue.password"
-              placeholder="Password"
-            >
-              <template #prepend>
-                <Icon type="ios-lock-outline" />
-              </template>
-            </Input>
-          </FormItem>
-          <FormItem>
-            <Checkbox v-model="rememberCheckbox">Remember me?</Checkbox>
-          </FormItem>
-          <FormItem>
-            <Button
-              type="primary"
-              @click="handleSubmit('formInline')"
-              :loading="signUpLoading"
-              >Login in</Button
-            >
-          </FormItem>
-        </Form>
-        <router-link :to="RoutesInf.forgotPasswordPage.path"
-          >Forgot your password?</router-link
-        >
-        <div>
-          Not registered yet?
-          <router-link :to="RoutesInf.signUpPage.path">Signup</router-link>
-        </div>
-        <br />
-        <div>
-          <router-link to="">Privacy Notice </router-link> |
-          <router-link to="">Terms Of Use</router-link>
-        </div>
-      </Card>
-    </div>
-  </Layout>
+        <FormItem prop="user">
+          <Input
+            type="text"
+            v-model="loginFormValue.user"
+            placeholder="Username"
+          >
+            <template #prepend>
+              <Icon type="ios-person-outline" />
+            </template>
+          </Input>
+        </FormItem>
+        <FormItem prop="password">
+          <Input
+            type="password"
+            v-model="loginFormValue.password"
+            placeholder="Password"
+          >
+            <template #prepend>
+              <Icon type="ios-lock-outline" />
+            </template>
+          </Input>
+        </FormItem>
+        <FormItem>
+          <Checkbox v-model="rememberCheckbox">Remember me?</Checkbox>
+        </FormItem>
+        <FormItem>
+          <Button
+            type="primary"
+            @click="handleSubmit('formInline')"
+            :loading="signUpLoading"
+            >Login in</Button
+          >
+        </FormItem>
+      </Form>
+      <router-link :to="RoutesInf.forgotPasswordPage.path"
+        >Forgot your password?</router-link
+      >
+      <div>
+        Not registered yet?
+        <router-link :to="RoutesInf.signUpPage.path">Signup</router-link>
+      </div>
+      <br />
+      <div>
+        <router-link to="">Privacy Notice </router-link> |
+        <router-link to="">Terms Of Use</router-link>
+      </div>
+    </Card>
+  </div>
 </template>
 <script>
 import RoutesInf from "@/utils/RoutesInf";
@@ -128,17 +119,15 @@ export default {
 };
 </script>
 <style scoped>
-html,
-body,
 .login-bg {
-  margin: 0;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   background-image: url("../assets/background.jpeg");
 }
-.forgotPasswordCardLogo {
-  text-align: center;
-  margin: 5vh auto;
+.Logo {
+  margin: auto;
   width: 12vw;
 }
 </style>
