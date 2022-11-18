@@ -6,10 +6,10 @@
           <div>
             <Carousel autoplay v-model="carousel" loop style="height: 100vh">
               <CarouselItem>
-                <img src="../assets/background.jpeg" />
+                <img src="../assets/background.jpeg" alt="banner1" />
               </CarouselItem>
               <CarouselItem>
-                <img src="../assets/background.jpeg" />
+                <img src="../assets/background.jpeg" alt="banner2" />
               </CarouselItem>
             </Carousel>
           </div>
@@ -23,18 +23,22 @@
                 padding-bottom: 30px;
               "
             >
-              <img src="../assets/logo.gif" style="width: 30%" />
+              <img
+                src="../assets/logo.gif"
+                style="width: 30%"
+                alt="我是logo图"
+              />
             </div>
             <Form
               ref="formValidate"
-              :model="formValidate"
-              :rules="ruleValidate"
+              :model="SignUpFormValidate"
+              :rules="SignUpRuleValidate"
               :label-width="90"
               style="padding-top: 20px; width: 400px; margin: auto"
             >
               <FormItem label="Company" prop="companyName">
                 <Input
-                  v-model="formValidate.companyName"
+                  v-model="SignUpFormValidate.companyName"
                   placeholder="Enter your Company name"
                 />
               </FormItem>
@@ -42,7 +46,7 @@
                 <Col span-8>
                   <FormItem prop="firstName" label="Name">
                     <Input
-                      v-model="formValidate.firstName"
+                      v-model="SignUpFormValidate.firstName"
                       placeholder="Enter your firstName"
                     />
                   </FormItem>
@@ -50,7 +54,7 @@
                 <Col span-8>
                   <FormItem prop="lastName">
                     <Input
-                      v-model="formValidate.lastName"
+                      v-model="SignUpFormValidate.lastName"
                       placeholder="Enter your lastName"
                     />
                   </FormItem>
@@ -58,31 +62,31 @@
               </Row>
               <FormItem label="Password" prop="password">
                 <Input
-                  v-model="formValidate.password"
+                  v-model="SignUpFormValidate.password"
                   placeholder="Enter your password"
                 />
               </FormItem>
               <FormItem label="Confirm Password" prop="confirmPassword">
                 <Input
-                  v-model="formValidate.confirmPassword"
+                  v-model="SignUpFormValidate.confirmPassword"
                   placeholder=" Confirming password "
                 />
               </FormItem>
               <FormItem label="E-mail" prop="mail">
                 <Input
-                  v-model="formValidate.mail"
+                  v-model="SignUpFormValidate.mail"
                   placeholder="Enter your e-mail"
                 />
               </FormItem>
               <FormItem label="Phone" prop="phone">
                 <Input
-                  v-model="formValidate.phone"
+                  v-model="SignUpFormValidate.phone"
                   placeholder="Enter your phone number"
                 />
               </FormItem>
               <FormItem label="City" prop="city">
                 <Select
-                  v-model="formValidate.city"
+                  v-model="SignUpFormValidate.city"
                   placeholder="Select your city"
                 >
                   <Option value="beijing">New York</Option>
@@ -117,88 +121,16 @@
 
 <script>
 import RoutesInf from "@/utils/RoutesInf";
-
+import SignUpFormValidate from "@/utils/SignUp/SignUpFormValidate";
+import SignUpRuleValidate from "@/utils/SignUp/SignUpRuleValidate";
 export default {
   name: "SignUpPage",
   data() {
     return {
       carousel: 0,
       RoutesInf,
-      formValidate: {
-        companyName: "",
-        mail: "",
-        city: "",
-        phone: "",
-        password: "",
-        confirmPassword: "",
-        firstName: "",
-        lastName: "",
-      },
-      ruleValidate: {
-        companyName: [
-          {
-            required: true,
-            message: "The company name cannot be empty",
-            trigger: "blur",
-          },
-        ],
-        mail: [
-          {
-            required: true,
-            message: "Mailbox cannot be empty",
-            trigger: "blur",
-          },
-          { type: "email", message: "Incorrect email format", trigger: "blur" },
-        ],
-        phone: [
-          {
-            required: true,
-            message: "The phone number cannot be empty",
-            trigger: "blur",
-          },
-        ],
-        password: [
-          {
-            required: true,
-            message: "Please fill in the password",
-            trigger: "blur",
-          },
-          {
-            type: "string",
-            min: 6,
-            message: "The password length cannot be less than 6 bits",
-            trigger: "blur",
-          },
-        ],
-        confirmPassword: [
-          {
-            required: true,
-            message: "Confirming password is required",
-            trigger: "blur",
-          },
-        ],
-        city: [
-          {
-            required: true,
-            message: "Please select the city",
-            trigger: "change",
-          },
-        ],
-        firstName: [
-          {
-            required: true,
-            message: "Required field",
-            trigger: "blur",
-          },
-        ],
-        lastName: [
-          {
-            required: true,
-            message: "Required field",
-            trigger: "blur",
-          },
-        ],
-      },
+      SignUpFormValidate,
+      SignUpRuleValidate,
     };
   },
   methods: {

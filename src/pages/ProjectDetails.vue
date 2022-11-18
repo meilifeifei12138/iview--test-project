@@ -10,7 +10,7 @@
         <br />
         <span
           >项目原地址:
-          <a @click="jumpOriginAddress">{{ projectDate.website }}</a>
+          <a :href="projectDate.website">{{ projectDate.website }}</a>
         </span>
       </Card>
 
@@ -18,7 +18,7 @@
         <div class="splitFatherBox">
           <Split v-model="splitProportion">
             <template #left>
-              <div class="splitPane"></div>
+              <div class="splitPane">左边内容</div>
             </template>
             <template #trigger>
               <div class="trigger">
@@ -29,12 +29,11 @@
               </div>
             </template>
             <template #right>
-              <div class="splitPane"></div>
+              <div class="splitPane">右边内容</div>
             </template>
           </Split>
         </div>
       </Card>
-      <ModalComponent ref="subscriptionModal" />
     </Layout>
   </div>
 </template>
@@ -42,19 +41,15 @@
 <script>
 import LayoutHeader from "@/components/LayoutHeader";
 import NewTableDate from "@/utils/ProjectTable/NewTableDate";
-import ModalComponent from "@/components/SubscriptionModalComponent";
 export default {
   name: "ProjectDetails",
   data() {
     return {
-      isSubscribe: false,
-      NewTableDate,
       projectDate: {},
       splitProportion: 0.5,
     };
   },
   components: {
-    ModalComponent,
     LayoutHeader,
   },
   created() {
@@ -65,17 +60,6 @@ export default {
       //  request
       this.projectDate = NewTableDate[3];
     },
-    jumpOriginAddress() {
-      if (!this.isSubscribe) {
-        this.$refs.subscriptionModal.showModal = true;
-      }
-    },
-  },
-  filters: {
-    //没写完的；
-    // urlHidden: function (value) {
-    //   return value.replace(/\.+/g, "******");
-    // },
   },
 };
 </script>

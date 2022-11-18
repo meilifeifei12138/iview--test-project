@@ -4,7 +4,7 @@
       <Row type="flex" justify="space-between" class="code-row-bg">
         <Col span-1>
           <div @click="toFrontPage">
-            <img class="layout-logo" src="../assets/logo.gif" />
+            <img class="layout-logo" src="../assets/logo.gif" alt="我是logo" />
           </div>
         </Col>
         <Col>
@@ -24,11 +24,6 @@ import SignedInLayoutHeaderMenuItem from "@/components/SignedInLayoutHeaderMenuI
 import RoutesInf from "@/utils/RoutesInf";
 export default {
   name: "LayoutHeaderPage",
-  data() {
-    return {
-      isShowPunchCard: false,
-    };
-  },
   components: {
     SignedInLayoutHeaderMenuItem,
   },

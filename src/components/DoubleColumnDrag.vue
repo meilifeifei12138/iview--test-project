@@ -16,7 +16,7 @@
       </div>
       <div class="outer-container">
         <div class="inner-container">
-          <div class="content"></div>
+          <div class="content">我是内容</div>
         </div>
       </div>
     </div>

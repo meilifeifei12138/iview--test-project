@@ -13,7 +13,7 @@
       </router-link>
     </Menu-item>
     <Menu-item name="checkin">
-      <CheckinPoptip />
+      <CheckinPopTip />
     </Menu-item>
     <Menu-item name="userAvatar">
       <UserAvatar />
@@ -24,7 +24,7 @@
 <script>
 import LoggedInLayoutMenuItem from "@/utils/LayoutMenu/LoggedInLayoutMenuItem";
 import UserAvatar from "@/components/UserAvatar";
-import CheckinPoptip from "@/components/CheckinPoptip";
+import CheckinPopTip from "@/components/CheckinPoptip";
 
 export default {
   name: "SignedInLayoutHeaderMenuItem",
@@ -35,7 +35,7 @@ export default {
   },
   components: {
     UserAvatar,
-    CheckinPoptip,
+    CheckinPopTip,
   },
 };
 </script>

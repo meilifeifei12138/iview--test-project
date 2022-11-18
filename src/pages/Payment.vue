@@ -11,16 +11,18 @@
         <Col span="12">
           <div class="rightCard">
             <h2>使用银行卡</h2>
-            <div>
-              <Input
-                prefix="md-mail"
-                size="large"
-                disabled
-                v-model.trim="userEmail"
-              />
-            </div>
+            <Input
+              prefix="md-mail"
+              size="large"
+              disabled
+              v-model.trim="userEmail"
+            />
             <h3>银行卡信息</h3>
-            <Form :model="BankCardForm" :rules="BankCardRuleValidate">
+            <Form
+              :model="BankCardForm"
+              :rules="BankCardRuleValidate"
+              ref="bankCardForm"
+            >
               <FormItem prop="bankCardNum">
                 <Input
                   suffix="ios-card"
@@ -76,12 +78,17 @@
                     v-for="item in CountryList"
                     :key="item.key"
                     :value="item.key"
-                    >{{ item }}
+                    >{{ item.value }}
                   </Option>
                 </Select>
               </FormItem>
               <FormItem>
-                <Button @click="subscription" type="primary" long>
+                <Button
+                  long
+                  type="primary"
+                  :loading="isSubmitButtonLoading"
+                  @click="subscription(BankCardRuleValidate)"
+                >
                   订阅
                 </Button>
               </FormItem>
@@ -104,6 +111,7 @@ export default {
   data() {
     return {
       clickedPrice: "",
+      isSubmitButtonLoading: false,
       userEmail: "admin@163.com",
       CountryList,
       MonthList,
@@ -120,7 +128,19 @@ export default {
       event.returnValue = keyCode >= 48 && keyCode <= 57;
     },
     subscription() {
-      console.log(123);
+      this.$refs.bankCardForm.validate((valid) => {
+        if (valid) {
+          //send request
+          this.isSubmitButtonLoading = true;
+          //判断请求是否成功
+          setTimeout(function () {
+            alert("支付成功！恭喜你成为尊贵的vip儿");
+          }, 4000);
+          this.isSubmitButtonLoading = false;
+        } else {
+          this.$Message.error("表单验证失败");
+        }
+      });
     },
   },
 };

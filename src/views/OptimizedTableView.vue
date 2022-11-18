@@ -53,7 +53,7 @@
               <Select
                 v-model="countrySelectModel"
                 :model-value="checkAll"
-                :disabled="isSubscribe"
+                :disabled="subscribeState"
                 style="width: 200px"
               >
                 <Option
@@ -72,7 +72,7 @@
             <span @mousedown="showSubscriptionModal">
               <Select
                 v-model="countrySelectModel"
-                :disabled="isSubscribe"
+                :disabled="subscribeState"
                 style="width: 200px"
               >
                 <Option
@@ -103,9 +103,6 @@
             :loading="isCollectedAllProjectBtnLoading"
             >收藏
           </Button>
-          <Button type="primary" style="margin-right: 10px">xxxx</Button>
-          <Button type="primary" style="margin-right: 10px">xxxx</Button>
-          <Button type="primary" style="margin-right: 10px">xxxx</Button>
         </Row>
       </Card>
       <Table
@@ -163,7 +160,6 @@ export default {
       isLoading: false,
       checkAll: false,
       countrySelectModel: "",
-      isSubscribe: true,
       isCollectedAllProjectBtnLoading: false,
       selectedDate: [],
       pageOption: {
@@ -172,6 +168,11 @@ export default {
       },
     };
   },
+  computed: {
+    subscribeState() {
+      return this.$store.state.notSubscribe;
+    },
+  },
   watch: {
     countrySelectModel(newVal) {
       console.log(newVal);
@@ -179,7 +180,7 @@ export default {
   },
   methods: {
     showSubscriptionModal() {
-      if (this.isSubscribe) {
+      if (this.subscribeState) {
         this.$refs.subscriptionModal.showModal = true;
       }
     },

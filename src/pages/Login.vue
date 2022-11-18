@@ -1,8 +1,8 @@
 <template>
   <div class="login-bg">
     <Card style="width: 30%; min-height: 60%; margin: auto; text-align: center">
-      <div class="Logo">
-        <img src="../assets/logo.gif" style="width: 100%" />
+      <div class="logo">
+        <img src="../assets/logo.gif" style="width: 100%" alt="我是logo" />
       </div>
       <h2 style="margin-bottom: 5vh">Login</h2>
       <Form
@@ -126,7 +126,7 @@ export default {
   height: 100vh;
   background-image: url("../assets/background.jpeg");
 }
-.Logo {
+.logo {
   margin: auto;
   width: 12vw;
 }

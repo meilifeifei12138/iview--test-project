@@ -9,8 +9,8 @@
           text-align: center;
         "
       >
-        <div class="Logo">
-          <img src="../assets/logo.gif" style="width: 100%" />
+        <div class="logo">
+          <img src="../assets/logo.gif" style="width: 100%" alt="我是logo" />
         </div>
         <h2 style="margin-bottom: 5vh">Lost password?</h2>
         <Form
@@ -35,8 +35,8 @@
           <router-link :to="RoutesInf.signUpPage.path"> Sign up </router-link>
         </div>
       </Card>
-    </div></Layout
-  >
+    </div>
+  </Layout>
 </template>
 
 <script>
@@ -73,7 +73,7 @@ body,
   height: 100vh;
   background-image: url("../assets/background.jpeg");
 }
-.Logo {
+.logo {
   text-align: center;
   margin: 5vh auto;
   width: 12vw;

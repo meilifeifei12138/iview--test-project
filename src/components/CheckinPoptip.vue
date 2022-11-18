@@ -16,7 +16,7 @@
       <div style="width: 19.5rem; text-align: center">
         <p>已连续签到{{ consecutiveDay }}天</p>
         <Row :gutter="5">
-          <Col span-3 v-for="item in CheckedinDate" :key="item.value">
+          <Col span-3 v-for="item in CheckedInDate" :key="item.value">
             <div
               style="width: 2.5rem; height: 3rem; background-color: skyblue"
               @click="signedIn(item)"
@@ -45,13 +45,13 @@
 
 <script>
 import RoutesInf from "@/utils/RoutesInf";
-import CheckedinDate from "@/utils/CheckedinDate";
+import CheckedInDate from "@/utils/CheckedinDate";
 export default {
-  name: "CheckinPoptip",
+  name: "CheckinPopTip",
   data() {
     return {
       RoutesInf,
-      CheckedinDate,
+      CheckedInDate,
       consecutiveDay: 0,
     };
   },

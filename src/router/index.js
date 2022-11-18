@@ -87,6 +87,7 @@ const routes = [
     path: RoutesInf.checkinPage.path,
     component: CheckinPage,
   },
+  //支付页面
   {
     name: RoutesInf.paymentPage.name,
     path: RoutesInf.paymentPage.path,

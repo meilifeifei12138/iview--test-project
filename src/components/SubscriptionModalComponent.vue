@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <Modal
-      v-model="showModal"
-      title="订阅"
-      @on-ok="confirmBtn"
-      ok-text="去订阅"
-      cancel-text="再考虑考虑"
-    >
-      <slot name="content">
-        <h1>打钱打钱</h1>
-      </slot>
-    </Modal>
-  </div>
+  <Modal
+    v-model="showModal"
+    title="订阅"
+    @on-ok="confirmBtn"
+    ok-text="去订阅"
+    cancel-text="再考虑考虑"
+  >
+    <slot name="content">
+      <h1>打钱打钱</h1>
+    </slot>
+  </Modal>
 </template>
 
 <script>

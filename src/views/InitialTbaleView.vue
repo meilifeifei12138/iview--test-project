@@ -33,7 +33,7 @@
         </Tooltip>
       </template>
     </Table>
-    <ModalComponent ref="subscriptionModal" />
+    <SubscriptionModalComponent ref="subscriptionModal" />
   </div>
 </template>
 
@@ -57,12 +57,12 @@ export default {
     };
   },
   components: {
-    ModalComponent: SubscriptionModalComponent,
+    SubscriptionModalComponent,
   },
   methods: {
     favorites(row) {
       // row.id;
-      // request
+      //send  request
       const that = this;
       this.tableLoading = true;
       setTimeout(function () {
