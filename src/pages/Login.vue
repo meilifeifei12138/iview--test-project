@@ -1,15 +1,15 @@
 <template>
   <div class="login-bg">
-    <Card style="width: 30%; min-height: 60%; margin: auto; text-align: center">
+    <Card class="card">
       <div class="logo">
-        <img src="../assets/logo.gif" style="width: 100%" alt="我是logo" />
+        <img src="../assets/logo.gif" alt="我是logo" />
       </div>
-      <h2 style="margin-bottom: 5vh">Login</h2>
+      <h2>Login</h2>
       <Form
-        ref="formInline"
+        ref="loginForm"
         :model="loginFormValue"
         :rules="ruleInline"
-        style="padding: 0 20%"
+        class="form"
       >
         <FormItem prop="user">
           <Input
@@ -37,10 +37,7 @@
           <Checkbox v-model="rememberCheckbox">Remember me?</Checkbox>
         </FormItem>
         <FormItem>
-          <Button
-            type="primary"
-            @click="handleSubmit('formInline')"
-            :loading="signUpLoading"
+          <Button type="primary" @click="handleSubmit" :loading="signUpLoading"
             >Login in</Button
           >
         </FormItem>
@@ -98,8 +95,8 @@ export default {
     };
   },
   methods: {
-    handleSubmit(name) {
-      this.$refs[name].validate((valid) => {
+    handleSubmit() {
+      this.$refs.loginForm.validate((valid) => {
         if (valid) {
           this.$Message.success("Success!");
           // 发请求
@@ -119,6 +116,13 @@ export default {
 };
 </script>
 <style scoped>
+@import "@/css/login-public.css";
+.card {
+  width: 30%;
+  min-height: 60%;
+  margin: auto;
+  text-align: center;
+}
 .login-bg {
   display: flex;
   justify-content: center;

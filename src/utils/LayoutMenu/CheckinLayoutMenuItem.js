@@ -12,10 +12,4 @@ export default [
     icon: "fa-solid fa-home",
     path: RoutesInf.homeLayout.path,
   },
-  {
-    name: "订阅",
-    value: "upgrade",
-    icon: "fa-solid fa-bell",
-    path: RoutesInf.subscribePage.path,
-  },
 ];

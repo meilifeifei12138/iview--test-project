@@ -1,0 +1,8 @@
+.layout-logo {
+    height: 30px;
+    border-radius: 3px;
+    float: left;
+    position: relative;
+    top: 15px;
+    left: 20px;
+}

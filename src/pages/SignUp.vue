@@ -1,40 +1,30 @@
 <template>
   <Layout>
-    <Content :style="{ height: 'calc(100vh)', background: '#fff' }">
+    <Content class="content">
       <Row>
         <Col span="12">
           <div>
-            <Carousel autoplay v-model="carousel" loop style="height: 100vh">
+            <Carousel autoplay v-model="carousel" loop class="carousel">
               <CarouselItem>
-                <img src="../assets/background.jpeg" alt="banner1" />
+                <img src="../assets/background.jpeg" alt="背景图" />
               </CarouselItem>
               <CarouselItem>
-                <img src="../assets/background.jpeg" alt="banner2" />
+                <img src="../assets/background.jpeg" alt="背景图" />
               </CarouselItem>
             </Carousel>
           </div>
         </Col>
         <Col span="12">
           <div>
-            <div
-              style="
-                text-align: center;
-                padding-top: 30px;
-                padding-bottom: 30px;
-              "
-            >
-              <img
-                src="../assets/logo.gif"
-                style="width: 30%"
-                alt="我是logo图"
-              />
+            <div class="signup-logo-farther-box">
+              <img src="../assets/logo.gif" alt="logo" class="signup-logo" />
             </div>
             <Form
-              ref="formValidate"
+              ref="signUpForm"
               :model="SignUpFormValidate"
               :rules="SignUpRuleValidate"
               :label-width="90"
-              style="padding-top: 20px; width: 400px; margin: auto"
+              class="form"
             >
               <FormItem label="Company" prop="companyName">
                 <Input
@@ -101,14 +91,14 @@
                 </Checkbox>
               </FormItem>
               <FormItem>
-                <Button type="primary" @click="handleSubmit('formValidate')"
-                  >Create Account</Button
-                >
+                <Button type="primary" @click="createAccountBtn">
+                  Create Account
+                </Button>
               </FormItem>
             </Form>
-            <div style="float: right">
-              <router-link :to="RoutesInf.loginPage.path"
-                >Login in
+            <div class="login-text">
+              <router-link :to="RoutesInf.loginPage.path">
+                Login in
                 <Icon type="md-arrow-forward" />
               </router-link>
             </div>
@@ -123,6 +113,7 @@
 import RoutesInf from "@/utils/RoutesInf";
 import SignUpFormValidate from "@/utils/SignUp/SignUpFormValidate";
 import SignUpRuleValidate from "@/utils/SignUp/SignUpRuleValidate";
+
 export default {
   name: "SignUpPage",
   data() {
@@ -134,8 +125,8 @@ export default {
     };
   },
   methods: {
-    handleSubmit(name) {
-      this.$refs[name].validate((valid) => {
+    createAccountBtn() {
+      this.$refs.signUpForm.validate((valid) => {
         if (!valid) {
           this.$Message.error("validate fail!");
           return;
@@ -151,4 +142,28 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.content {
+  min-height: 500px;
+  background: #fff;
+}
+.carousel {
+  height: 100vh;
+}
+.signup-logo-farther-box {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.signup-logo {
+  width: 30%;
+}
+.form {
+  padding-top: 20px;
+  width: 400px;
+  margin: auto;
+}
+.login-text {
+  float: right;
+}
+</style>

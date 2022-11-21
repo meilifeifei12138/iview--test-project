@@ -2,13 +2,13 @@
   <Header class="header">
     <Menu mode="horizontal" active-name="1">
       <Row type="flex" justify="space-between" class="code-row-bg">
-        <Col span-1>
+        <Col span="1">
           <div @click="toFrontPage">
             <img class="layout-logo" src="../assets/logo.gif" alt="我是logo" />
           </div>
         </Col>
         <Col>
-          <div class="layout-nav">
+          <div>
             <slot name="menuItem">
               <SignedInLayoutHeaderMenuItem />
             </slot>
@@ -36,17 +36,9 @@ export default {
 </script>
 
 <style scoped>
-.layout-logo {
-  height: 30px;
-  border-radius: 3px;
-  float: left;
-  position: relative;
-  top: 15px;
-  left: 20px;
-}
+@import "@/css/layout-logo.css";
 .header {
   background: #fff;
-  boxshadow: "0 2px 3px 2px rgba(0,0,0,.1)";
   height: 100%;
 }
 </style>

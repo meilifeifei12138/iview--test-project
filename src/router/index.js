@@ -2,20 +2,20 @@ import Vue from "vue";
 
 import RoutesInf from "@/utils/RoutesInf";
 
+const FrontPage = () => import("../pages/FrontPage");
+const HomeLayout = () => import("@/layout/HomeLayout");
+const HomeView = () => import("@/views/InitialTableView");
+const SignUpPage = () => import("@/pages/SignUp");
+const LoginPage = () => import("@/pages/Login");
+const SubscribePage = () => import("@/pages/Subscribe");
+const ProjectDetailsPage = () => import("@/pages/ProjectDetail");
+const MessageCenterPage = () => import("@/pages/MessageCenter");
+const ServeCenterPage = () => import("@/pages/ServeCenter");
+const ForgotPasswordPage = () => import("@/pages/ForgotPassword");
+const CheckinPage = () => import("@/pages/Checkin");
+const Payment = () => import("@/pages/Payment");
+const NotFound = () => import("@/pages/404");
 import VueRouter from "vue-router";
-import HomeLayout from "@/layout/HomeLayout";
-import HomeView from "@/views/InitialTbaleView";
-import SignUpPage from "@/pages/SignUp";
-import LoginPage from "@/pages/Login";
-import FrontPage from "@/pages/FrontPage";
-import SubscribePage from "@/pages/Subscribe";
-import ProjectDetailsPage from "@/pages/ProjectDetails";
-import MessageCenterPage from "@/pages/MessageCenter";
-import ServeCenterPage from "@/pages/ServeCenter";
-import ForgotPasswordPage from "@/pages/ForgotPassword";
-import CheckinPage from "@/pages/Checkin";
-import PaymentPage from "@/pages/Payment";
-import NotFound from "@/pages/404";
 
 Vue.use(VueRouter);
 
@@ -59,8 +59,8 @@ const routes = [
   },
   //项目详情
   {
-    path: RoutesInf.projectDetailsPage.path,
-    name: RoutesInf.projectDetailsPage.name,
+    path: RoutesInf.projectDetailPage.path,
+    name: RoutesInf.projectDetailPage.name,
     component: ProjectDetailsPage,
   },
   //订阅页
@@ -91,11 +91,11 @@ const routes = [
   {
     name: RoutesInf.paymentPage.name,
     path: RoutesInf.paymentPage.path,
-    component: PaymentPage,
+    component: Payment,
   },
   {
-    path: "*",
-    name: "notfound",
+    name: RoutesInf.notFound.name,
+    path: RoutesInf.notFound.path,
     component: NotFound,
   },
 ];

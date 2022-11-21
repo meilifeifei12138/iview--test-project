@@ -1,12 +1,12 @@
 <template>
   <div>
     <LayoutHeader />
-    <Layout :style="{ padding: '24px 24px' }">
-      <Card style="margin-bottom: 24px">
-        <h1 style="text-align: center">{{ projectDate.title }}</h1>
+    <Layout class="layout">
+      <Card class="card">
+        <h1>{{ projectDate.title }}</h1>
         <span>截止日期：{{ projectDate.announcementDate }}</span>
         <br />
-        <span>项目简介：xxxxxxx</span>
+        <span>项目简介：</span>
         <br />
         <span
           >项目原地址:
@@ -15,21 +15,21 @@
       </Card>
 
       <Card>
-        <div class="splitFatherBox">
+        <div class="split-father-box">
           <Split v-model="splitProportion">
             <template #left>
-              <div class="splitPane">左边内容</div>
+              <div class="split-pane">左边内容</div>
             </template>
             <template #trigger>
               <div class="trigger">
                 <font-awesome-icon
                   icon="fa-solid fa-arrow-right-arrow-left"
-                  class="triggerIcon"
+                  class="trigger-icon"
                 />
               </div>
             </template>
             <template #right>
-              <div class="splitPane">右边内容</div>
+              <div class="split-pane">右边内容</div>
             </template>
           </Split>
         </div>
@@ -42,7 +42,7 @@
 import LayoutHeader from "@/components/LayoutHeader";
 import NewTableDate from "@/utils/ProjectTable/NewTableDate";
 export default {
-  name: "ProjectDetails",
+  name: "ProjectDetail",
   data() {
     return {
       projectDate: {},
@@ -65,11 +65,18 @@ export default {
 </script>
 
 <style scoped>
-.splitFatherBox {
+@import "@/css/layout.css";
+.card {
+  margin-bottom: 24px;
+}
+h1 {
+  text-align: center;
+}
+.split-father-box {
   height: 40rem;
   border: 1px solid #dcdee2;
 }
-.splitPane {
+.split-pane {
   width: 100%;
   height: 40rem;
   background-color: #f5f7f9;
@@ -84,7 +91,7 @@ export default {
   border-bottom: none;
   cursor: col-resize;
 }
-.triggerIcon {
+.trigger-icon {
   color: #2db7f5;
   position: absolute;
   left: 0.125rem;

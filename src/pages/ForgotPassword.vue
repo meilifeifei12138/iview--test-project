@@ -1,23 +1,12 @@
 <template>
   <Layout>
     <div class="forgotPassword-bg">
-      <Card
-        style="
-          width: 30%;
-          min-height: 60vh;
-          margin: 20vh auto 30vh;
-          text-align: center;
-        "
-      >
+      <Card class="card">
         <div class="logo">
-          <img src="../assets/logo.gif" style="width: 100%" alt="我是logo" />
+          <img src="../assets/logo.gif" alt="我是logo" />
         </div>
-        <h2 style="margin-bottom: 5vh">Lost password?</h2>
-        <Form
-          :model="formValidate"
-          :rules="ruleValidate"
-          style="padding: 0 20%"
-        >
+        <h2>Lost password?</h2>
+        <Form :model="formValidate" :rules="ruleValidate" class="form">
           <FormItem prop="mail">
             <Input v-model="formValidate.mail" placeholder="Enter your e-mail">
               <template #prepend>
@@ -27,10 +16,10 @@
           </FormItem>
         </Form>
         <div>
-          <Button type="primary" style="margin: 5vh">Reset Password</Button>
+          <Button type="primary" class="reset-button">Reset Password</Button>
         </div>
         <div>
-          <router-link :to="RoutesInf.loginPage.path">Login in </router-link>
+          <router-link :to="RoutesInf.loginPage.path">Login in</router-link>
           <span>|</span>
           <router-link :to="RoutesInf.signUpPage.path"> Sign up </router-link>
         </div>
@@ -65,17 +54,26 @@ export default {
 </script>
 
 <style scoped>
-html,
-body,
+@import "@/css/login-public.css";
 .forgotPassword-bg {
-  margin: 0;
-  padding: 0;
   height: 100vh;
   background-image: url("../assets/background.jpeg");
+}
+.card {
+  width: 30%;
+  min-height: 60vh;
+  margin: 20vh auto 30vh;
+  text-align: center;
 }
 .logo {
   text-align: center;
   margin: 5vh auto;
   width: 12vw;
+}
+.form {
+  padding: 0 20%;
+}
+.reset-button {
+  margin: 5vh;
 }
 </style>

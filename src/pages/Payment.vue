@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <Content class="content">
+    <Content>
       <Row>
         <Col span="12">
           <div class="leftCard">
@@ -156,8 +156,5 @@ export default {
   height: 100vh;
   padding: 10% 5% 0 5%;
   background-color: thistle;
-}
-/deep/.ivu-card-body {
-  padding: 0;
 }
 </style>

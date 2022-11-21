@@ -1,21 +1,13 @@
 <template>
   <div>
-    <Card
-      style="
-        height: auto;
-        margin-bottom: 15px;
-        padding-left: 10px;
-        border-radius: 8px;
-      "
-    >
-      <Row :gutter="16" style="padding-bottom: 15px">
+    <Card class="card">
+      <Row :gutter="16" class="top-row">
         <Col span="8">
-          <div style="margin-bottom: 10px">
+          <div>
             <Input
               search
               autocomplete="off"
               placeholder="关键词"
-              style="line-height: 80px"
               enter-button="search"
             />
             <span>热门搜索：xxx ,xxx ,xxx</span>
@@ -26,7 +18,6 @@
             search
             autocomplete="off"
             placeholder="公司"
-            style="line-height: 80px"
             enter-button="search"
           />
         </Col>
@@ -35,12 +26,11 @@
             search
             autocomplete="off"
             placeholder="编号"
-            style="line-height: 80px"
             enter-button="search"
           />
         </Col>
       </Row>
-      <div style="margin: 10px 0">
+      <div class="subscribe-text">
         <router-link :to="RoutesInf.subscribePage.path">
           去订阅使用更多功能
         </router-link>
@@ -54,7 +44,7 @@
                 v-model="countrySelectModel"
                 :model-value="checkAll"
                 :disabled="subscribeState"
-                style="width: 200px"
+                class="select-input"
               >
                 <Option
                   v-for="item in CountryList"
@@ -73,7 +63,7 @@
               <Select
                 v-model="countrySelectModel"
                 :disabled="subscribeState"
-                style="width: 200px"
+                class="select-input"
               >
                 <Option
                   v-for="item in TenderStatus"
@@ -88,29 +78,30 @@
       </Row>
     </Card>
     <Card>
-      <Card style="margin: 10px 0">
+      <Card class="bottom-card">
         <Row type="flex" justify="end" class="code-row-bg">
-          <Col></Col>
           <Col>
-            <div style="line-height: 32px; margin-right: 10px">
+            <div class="select-tip-text">
               批量操作 ：已选中{{ selectedDate.length }}项
             </div>
           </Col>
-          <Button
-            type="primary"
-            @click="collectedSelectedDate"
-            style="margin-right: 10px"
-            :loading="isCollectedAllProjectBtnLoading"
-            >收藏
-          </Button>
+          <Col>
+            <Button
+              type="primary"
+              @click="collectedSelectedDate"
+              :loading="isCollectedAllProjectBtnLoading"
+              class="collected-button"
+              >收藏
+            </Button>
+          </Col>
         </Row>
       </Card>
       <Table
         border
+        class="table"
         :columns="NewTableColumns"
         :data="NewTableDate"
         :loading="isLoading"
-        style="margin-bottom: 25px"
         @on-selection-change="selectionChanged"
       >
         <template #isCollected="{ row }">
@@ -211,4 +202,34 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.card {
+  height: auto;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  border-radius: 8px;
+}
+.top-row {
+  padding-bottom: 15px;
+}
+.select-input {
+  width: 200px;
+}
+.bottom-card {
+  margin: 10px 0;
+}
+.select-tip-text {
+  line-height: 32px;
+  margin-right: 10px;
+}
+.select-tip-text {
+  line-height: 32px;
+  margin-right: 10px;
+}
+.collected-button {
+  margin-right: 10px;
+}
+.table {
+  margin-bottom: 25px;
+}
+</style>

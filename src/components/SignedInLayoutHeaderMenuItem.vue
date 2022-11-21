@@ -1,17 +1,17 @@
 <template>
   <div>
-    <Menu-item
+    <menu-item
       v-for="menuItem in LoggedInLayoutMenuItem"
       :key="menuItem.value"
       :name="menuItem.value"
     >
-      <router-link :to="menuItem.path" style="display: block; color: #535b6c">
-        <div class="layoutHeaderFront">
+      <router-link :to="menuItem.path" class="router-link">
+        <div class="layout-header-front">
           <font-awesome-icon :icon="menuItem.icon" />
           {{ menuItem.name }}
         </div>
       </router-link>
-    </Menu-item>
+    </menu-item>
     <Menu-item name="checkin">
       <CheckinPopTip />
     </Menu-item>
@@ -41,5 +41,9 @@ export default {
 </script>
 
 <style scoped>
-@import "@/css/layoutHeader.css";
+@import "@/css/layout-header-front.css";
+.router-link {
+  display: block;
+  color: #535b6c;
+}
 </style>

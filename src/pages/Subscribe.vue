@@ -5,9 +5,7 @@
       <h1>Subscribe</h1>
     </Card>
     <Card>
-      <p style="height: 5rem; line-height: 5rem; text-align: center">
-        按年订阅更优惠
-      </p>
+      <p>按年订阅更优惠</p>
       <SubscribeCard />
     </Card>
   </div>
@@ -30,5 +28,10 @@ export default {
   height: 25vh;
   width: 100%;
   background-color: #2db7f5;
+}
+p {
+  height: 5rem;
+  line-height: 5rem;
+  text-align: center;
 }
 </style>

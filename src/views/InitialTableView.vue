@@ -13,7 +13,9 @@
               <font-awesome-icon
                 icon="fa-solid fa-heart"
                 :style="{
-                  color: row.is_saved ? '#E63F00' : defaultContentColor,
+                  color: row.is_saved
+                    ? changeContentColor
+                    : defaultContentColor,
                 }"
               />
             </Button>
@@ -39,7 +41,7 @@
 
 <script>
 const defaultContentColor = "#515a6e";
-
+const changeContentColor = "#E63F00";
 import SubscriptionModalComponent from "@/components/SubscriptionModalComponent";
 
 import TableColumns from "@/utils/ProjectTable/TableColumns";
@@ -52,7 +54,7 @@ export default {
       TableColumns,
       TableDate,
       defaultContentColor,
-      likeProjectIconColor: defaultContentColor,
+      changeContentColor,
       tableLoading: false,
     };
   },

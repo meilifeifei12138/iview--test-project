@@ -8,11 +8,8 @@
           :key="menuItem.value"
           :name="menuItem.value"
         >
-          <router-link
-            :to="menuItem.path"
-            style="display: block; color: #535b6c"
-          >
-            <div class="layoutHeaderFront">
+          <router-link :to="menuItem.path" class="router-link">
+            <div class="layout-header-front">
               <font-awesome-icon :icon="menuItem.icon" />
               {{ menuItem.name }}
             </div>
@@ -21,9 +18,10 @@
       </template>
     </LayoutHeader>
     <!--  头部导航栏的菜单  -->
-
-    <h1>补签 等功能 推荐用户订阅</h1>
-    <SubscribeCard />
+    <Content class="content">
+      <h1>补签 等功能 推荐用户订阅</h1>
+      <SubscribeCard />
+    </Content>
   </div>
 </template>
 
@@ -46,5 +44,12 @@ export default {
 </script>
 
 <style scoped>
-@import "@/css/layoutHeader.css";
+@import "@/css/layout-header-front.css";
+.router-link {
+  display: block;
+  color: #535b6c;
+}
+.content {
+  padding: 0 5%;
+}
 </style>

@@ -5,17 +5,15 @@
       v-for="subscribeItem in SubscribeInfo"
       :key="subscribeItem.level"
     >
-      <Card style="padding-left: 3rem; padding-right: 3rem">
-        <div class="subscribeCard">
-          <h1>{{ subscribeItem.level }}</h1>
-          <p>{{ subscribeItem.price }}</p>
-        </div>
+      <Card class="subscribe-card">
+        <h1>{{ subscribeItem.level }}</h1>
+        <p>{{ subscribeItem.price }}</p>
         <ul>
           <li v-for="item in subscribeItem.details" :key="item">
             {{ item }}
           </li>
         </ul>
-        <div style="text-align: center; margin-top: 5rem">
+        <div class="button-father-box">
           <Button type="primary" @click="toPayPage(subscribeItem.price)">
             {{ subscribeItem.subscribeBtnMessage }}
           </Button>
@@ -46,4 +44,13 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.subscribe-card {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.button-father-box {
+  text-align: center;
+  margin-top: 5rem;
+}
+</style>

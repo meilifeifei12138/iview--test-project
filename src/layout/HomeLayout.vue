@@ -1,7 +1,7 @@
 <template>
   <div>
     <LayoutHeader />
-    <Layout :style="{ padding: ' 24px 24px' }">
+    <Layout class="layout">
       <Tabs value="optimizedVersion">
         <TabPane label="第一版" name="initialVersion">
           <InitialTableView />
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import InitialTableView from "@/views/InitialTbaleView";
+import InitialTableView from "@/views/InitialTableView";
 import OptimizedTableView from "@/views/OptimizedTableView";
 import RoutesInf from "@/utils/RoutesInf";
 import LayoutHeader from "@/components/LayoutHeader";
@@ -34,4 +34,6 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+@import "@/css/layout.css";
+</style>

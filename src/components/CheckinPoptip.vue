@@ -1,37 +1,31 @@
 <template>
   <Poptip trigger="hover" title="Title" content="content">
-    <router-link
-      :to="RoutesInf.checkinPage.path"
-      style="display: block; color: #535b6c"
-    >
-      <div class="layoutHeaderFront">
-        <font-awesome-icon icon=" fa-solid fa-calendar" />
-        签到
-      </div>
-    </router-link>
+    <div class="layout-header-front">
+      <font-awesome-icon icon=" fa-solid fa-calendar" />
+      签到
+    </div>
     <template #title>
       <div>签到</div>
     </template>
     <template #content>
-      <div style="width: 19.5rem; text-align: center">
-        <p>已连续签到{{ consecutiveDay }}天</p>
-        <Row :gutter="5">
-          <Col span-3 v-for="item in CheckedInDate" :key="item.value">
-            <div
-              style="width: 2.5rem; height: 3rem; background-color: skyblue"
-              @click="signedIn(item)"
-            >
-              <span>{{ item.value }} </span>
-              <div>
-                <font-awesome-icon
-                  :icon="
-                    item.isChecked ? 'fa-solid fa-check' : 'fa-soled fa-lock'
-                  "
-                />
+      <div class="checked-box">
+        <div>
+          <p>已连续签到{{ consecutiveDay }}天</p>
+          <Row :gutter="16">
+            <Col span="3" v-for="item in CheckedInDate" :key="item.value">
+              <div class="checked-date-box" @click="checkedIn(item)">
+                <span>{{ item.value }} </span>
+                <div>
+                  <font-awesome-icon
+                    :icon="
+                      item.isChecked ? 'fa-solid fa-check' : 'fa-soled fa-lock'
+                    "
+                  />
+                </div>
               </div>
-            </div>
-          </Col>
-        </Row>
+            </Col>
+          </Row>
+        </div>
         <p>
           <router-link :to="RoutesInf.checkinPage.path">
             更多功能请前往
@@ -56,7 +50,7 @@ export default {
     };
   },
   methods: {
-    signedIn(clickedItem) {
+    checkedIn(clickedItem) {
       if (clickedItem.isChecked) {
         this.$Notice.success({
           title: "已签到",
@@ -72,4 +66,14 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.checked-box {
+  width: 20rem;
+  text-align: center;
+}
+.checked-date-box {
+  width: 2.4rem;
+  height: 3rem;
+  background-color: skyblue;
+}
+</style>

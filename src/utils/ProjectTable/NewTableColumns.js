@@ -29,7 +29,7 @@ export default [
           on: {
             click: () => {
               Router.push({
-                name: RoutesInf.projectDetailsPage.name,
+                name: RoutesInf.projectDetailPage.name,
                 params: {
                   id: params.row.id,
                   projectDetails: JSON.stringify(params.row),
